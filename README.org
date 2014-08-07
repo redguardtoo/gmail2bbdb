@@ -1,0 +1,38 @@
+* gmail2bbdb (v0.0.1)
+gmail2bbdb will import name and email from [[https://contacts.google.com][Gmail contacts]] into BBDB file. So you can auto-complete email address in Emacs.
+
+Please note the BBDB file *only contains name and email address*. The purpose doing so is to remove useless features of BBDB and minimize the maintaining cost because I plan to provider *10 years support* for this package.
+
+* Why
+- Easy to use. There is only one command.
+- Robust. It has NO dependency.
+
+* Install
+You only need download gmail2bbdb.el and put it somewhere (say ~/.emacs/lisp). Then add below code into your .emacs:
+#+BEGIN_SRC lisp
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(autoload 'gmail2bbdb-import-file "gmail2bbdb")
+#+END_SRC
+
+* Usage
+- Install [[http://melpa.milkbox.net/#/bbdb][latest BBDB from myelpa]]
+- At [[https://contacts.google.com][Gmail contacts page]], click "More -> Export -> vCard format -> Export", the file "contacts.vcf" will be downloaded.
+- Run command *"M-x gmail2bbdb-import-file"* and select contacts.vcf. The "$HOME/.bbdb.el" will be created, by default.
+
+You can specify a different path of output file,
+#+BEGIN_SRC elisp
+(setq gmail2bbdb-bbdb-file "~/.emacs.d/.bbdb")
+#+END_SRC
+
+* Tips (OPTIONAL)
+Check [[https://github.com/redguardtoo/emacs.d/blob/master/init-bbdb.el][my BBDB setup]].
+
+* Bug Report
+Check [[https://github.com/redguardtoo/gmail2bbdb]]
+
+* License
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see [[http://www.gnu.org/licenses/]].
