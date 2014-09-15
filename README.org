@@ -1,4 +1,4 @@
-* gmail2bbdb (v0.0.1)
+* gmail2bbdb (v0.0.2)
 gmail2bbdb will import name and email from [[https://www.google.com/contacts/][Gmail contacts]] into BBDB file. So you can auto-complete email address in Emacs.
 
 Please note the BBDB file *only contains name and email address*. I remove useless BBDB features to minimize the maintaining cost.
@@ -23,6 +23,11 @@ Download gmail2bbdb.el and place it somewhere (say ~/.emacs/lisp). Add below cod
 You can specify a different path of output file,
 #+BEGIN_SRC elisp
 (setq gmail2bbdb-bbdb-file "~/.emacs.d/.bbdb")
+#+END_SRC
+
+You can specify the email excluded patterns. Email address matching one of the patterns will NOT be excluded.
+#+BEGIN_SRC elisp
+(add-to-list 'gmail2bbdb-excluded-email-regex-list "noreply@mycompany.com")
 #+END_SRC
 
 * Tips (OPTIONAL)
