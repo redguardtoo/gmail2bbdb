@@ -25,7 +25,7 @@ You can specify a different path of output file,
 (setq gmail2bbdb-bbdb-file "~/.emacs.d/.bbdb")
 #+END_SRC
 
-You can specify the email excluded patterns. Email address matching one of the patterns will NOT be excluded.
+You can specify the email excluded patterns. Email address matching one of the patterns will be excluded.
 #+BEGIN_SRC elisp
 (add-to-list 'gmail2bbdb-excluded-email-regex-list "noreply@mycompany.com")
 #+END_SRC
