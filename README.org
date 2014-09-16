@@ -18,7 +18,7 @@ Download gmail2bbdb.el and place it somewhere (say ~/.emacs/lisp). Add below cod
 * Usage
 - Install [[http://melpa.milkbox.net/#/bbdb][latest BBDB from melpa]]
 - At [[https://www.google.com/contacts][Gmail contacts page]], click "More -> Export -> vCard format -> Export", the file "contacts.vcf" will be downloaded.
-- Run command "M-x gmail2bbdb-import-file" and select contacts.vcf. $HOME/.bbdb.el will be created.
+- Run command "M-x gmail2bbdb-import-file" and select contacts.vcf. "$HOME/.bbdb" will be created.
 
 You can specify a different path of output file,
 #+BEGIN_SRC elisp
@@ -31,7 +31,7 @@ You can specify the email excluded patterns. Email address matching one of the p
 #+END_SRC
 
 * Tips (OPTIONAL)
-Check [[https://github.com/redguardtoo/emacs.d/blob/master/init-bbdb.el][my BBDB setup]].
+See [[https://github.com/redguardtoo/emacs.d/blob/master/init-bbdb.el][my BBDB setup]].
 
 * Bug Report
 Check [[https://github.com/redguardtoo/gmail2bbdb]]

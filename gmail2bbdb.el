@@ -10,12 +10,16 @@
 
 ;; This file is free software (GPLv3 License)
 
-;; How to set it up:
-;; See README.org which is distributed with this file
+;; Usage:
+;;
+;; - Install latest BBDB from http://melpa.milkbox.net/#/bbdb
+;; - At https://www.google.com/contacts, click "More -> Export -> vCard format -> Export", the file "contacts.vcf" will be downloaded.
+;; - Run command "M-x gmail2bbdb-import-file" and select contacts.vcf. ~/.bbdb will be created.
+;;
 
 ;;; Code:
 
-(defvar gmail2bbdb-bbdb-file "~/.bbdb.el"
+(defvar gmail2bbdb-bbdb-file "~/.bbdb"
   "the full path of exported BBDB file")
 (defvar gmail2bbdb-excluded-email-regex-list '("^noreply.*"
                                                "notify.*@disqus.net"
