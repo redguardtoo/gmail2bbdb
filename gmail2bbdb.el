@@ -1,18 +1,24 @@
-;;; gmail2bbdb.el --- import email and name into bbdb from vcard
+;;; gmail2bbdb.el --- import email and name into bbdb from vcard. works out of the box.
 
 ;; Copyright (C) 2014 Chen Bin
 ;; Author: Chen Bin <chenbin.sh@gmail.com>
 ;; URL: http://github.com/redguardtoo/gmail2bbdb
 ;; Keywords: vcard bbdb email contact gmail
-;; Version: 0.0.2
+;; Version: 0.0.3
 
 ;; This file is not part of GNU Emacs.
 
 ;; This file is free software (GPLv3 License)
 
-;; Usage:
+;;; Install:
 ;;
-;; - Install latest BBDB from http://melpa.milkbox.net/#/bbdb
+;; Insert below code into ~/.emacs:
+;; (add-to-list 'load-path "~/.emacs.d/lisp/")
+;; (autoload 'gmail2bbdb-import-file "gmail2bbdb")
+;;
+
+;;; Usage:
+;;
 ;; - At https://www.google.com/contacts, click "More -> Export -> vCard format -> Export", the file "contacts.vcf" will be downloaded.
 ;; - Run command "M-x gmail2bbdb-import-file" and select contacts.vcf. ~/.bbdb will be created.
 ;;
@@ -20,24 +26,25 @@
 ;;; Code:
 
 (defvar gmail2bbdb-bbdb-file "~/.bbdb"
-  "the full path of exported BBDB file")
+  "The full path of exported BBDB file.")
+
 (defvar gmail2bbdb-excluded-email-regex-list '("^noreply.*"
                                                "notify.*@disqus.net"
                                                ".*@noreply.github.com$"
                                                "reply.*@reply.github.com"
                                                "do-not-reply@stackoverflow.com")
-  "email matching any regex in this list will NOT be exported")
+  "Email matching any regex from the list will NOT be exported")
 
 (defun gmail2bbdb--is-valid-email (eml)
-  (let ((i 0) found re)
-    (while (and (not found)
+  (let ((i 0) excluded re)
+    (while (and (not excluded)
                 (< i (length gmail2bbdb-excluded-email-regex-list)))
       (setq re (nth i gmail2bbdb-excluded-email-regex-list))
       (if (string-match re eml)
-        (setq found t))
+        (setq excluded t))
       (setq i (1+ i))
       )
-    (not found)))
+    (not excluded)))
 
 ;; ["Spolsky" "Joel" nil ("Spolsky Joel") nil nil nil ("spolsky@fogcreek.com") nil nil]
 (defun gmail2bbdb--extract-item (str)
@@ -93,7 +100,7 @@ records will be REMOVED."
           (insert ";; -*- mode: Emacs-Lisp; coding: utf-8; -*-\n")
           (insert ";;; file-format: 7\n")
           (insert rlt)
-          (write-file gmail2bbdb-bbdb-file))
+          (write-file (file-truename gmail2bbdb-bbdb-file)))
       (message "No email found"))
     ))
 

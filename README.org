@@ -1,4 +1,4 @@
-* gmail2bbdb (v0.0.2)
+* gmail2bbdb (v0.0.3)
 gmail2bbdb will import name and email from [[https://www.google.com/contacts/][Gmail contacts]] into BBDB file. So you can auto-complete email address in Emacs.
 
 Please note the BBDB file *only contains name and email address*. I remove useless BBDB features to minimize the maintaining cost.
@@ -31,7 +31,7 @@ You can specify the email excluded patterns. Email address matching one of the p
 #+END_SRC
 
 * Tips (OPTIONAL)
-See [[https://github.com/redguardtoo/emacs.d/blob/master/init-bbdb.el][my BBDB setup]].
+See [[https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-bbdb.el][my BBDB setup]].
 
 * Bug Report
 Check [[https://github.com/redguardtoo/gmail2bbdb]]
