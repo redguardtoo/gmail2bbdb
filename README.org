@@ -12,7 +12,7 @@ Please note the BBDB file *only contains name and email address*. I remove usele
 Download gmail2bbdb.el and place it somewhere (say ~/.emacs/lisp). Add below code into your .emacs:
 #+BEGIN_SRC lisp
 (add-to-list 'load-path "~/.emacs.d/lisp/")
-(autoload 'gmail2bbdb-import-file "gmail2bbdb")
+(autoload 'gmail2bbdb-import-file "gmail2bbdb" nil t nil)
 #+END_SRC
 
 * Usage
