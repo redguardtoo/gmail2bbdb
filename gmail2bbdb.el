@@ -1,27 +1,39 @@
-;;; gmail2bbdb.el --- import email and name into bbdb from vcard. works out of the box.
+;;; gmail2bbdb.el --- import email and name into bbdb from vcard.
 
-;; Copyright (C) 2014 Chen Bin
+;; Copyright (C) 2014, 2015 Chen Bin
 ;; Author: Chen Bin <chenbin.sh@gmail.com>
 ;; URL: http://github.com/redguardtoo/gmail2bbdb
 ;; Keywords: vcard bbdb email contact gmail
-;; Version: 0.0.3
+;; Version: 0.0.4
 
 ;; This file is not part of GNU Emacs.
 
-;; This file is free software (GPLv3 License)
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License as
+;; published by the Free Software Foundation; either version 2, or (at
+;; your option) any later version.
 
-;;; Install:
-;;
-;; Insert below code into ~/.emacs:
-;; (add-to-list 'load-path "~/.emacs.d/lisp/")
-;; (autoload 'gmail2bbdb-import-file "gmail2bbdb" nil t nil)
-;;
+;; This program is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; General Public License for more details.
 
-;;; Usage:
+;; You should have received a copy of the GNU General Public License
+;; along with this program ; see the file COPYING.  If not, write to
+;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+;; Boston, MA 02111-1307, USA.
+
+;;; Commentary:
+
+;; To setup, insert below code into ~/.emacs:
+;;   (add-to-list 'load-path "~/.emacs.d/lisp/")
+;;   (autoload 'gmail2bbdb-import-file "gmail2bbdb" nil t nil)
 ;;
-;; - At https://www.google.com/contacts, click "More -> Export -> vCard format -> Export"
-;;   the file "contacts.vcf" will be downloaded.
-;; - Run command "M-x gmail2bbdb-import-file" and select contacts.vcf. ~/.bbdb will be created.
+;; Usage:
+;;   - At https://www.google.com/contacts, click "More->Export->vCard format->Export".
+;;     The file "contacts.vcf" will be downloaded.
+;;   - Run command "M-x gmail2bbdb-import-file" and select contacts.vcf.
+;;     ~/.bbdb will be created.
 ;;
 
 ;;; Code:
