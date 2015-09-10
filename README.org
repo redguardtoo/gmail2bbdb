@@ -16,7 +16,7 @@ Download gmail2bbdb.el and place it somewhere (say ~/.emacs/lisp). Add below cod
 #+END_SRC
 
 * Usage
-- Install [[http://melpa.milkbox.net/#/bbdb][latest BBDB from melpa]]
+- Install [[https://melpa.org/#/bbdb][latest BBDB from melpa]]
 - At [[https://www.google.com/contacts][Gmail contacts page]], click "More -> Export -> vCard format -> Export", the file "contacts.vcf" will be downloaded.
 - Run command "M-x gmail2bbdb-import-file" and select contacts.vcf. "$HOME/.bbdb" will be created.
 
