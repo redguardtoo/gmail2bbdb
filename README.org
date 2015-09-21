@@ -1,4 +1,7 @@
 * gmail2bbdb (v0.0.4)
+
+[[http://melpa.org/#/gmail2bbdb][file:http://melpa.org/packages/gmail2bbdb-badge.svg]] [[http://stable.melpa.org/#/gmail2bbdb][file:http://stable.melpa.org/packages/gmail2bbdb-badge.svg]]
+
 gmail2bbdb will import name and email from [[https://www.google.com/contacts/][Gmail contacts]] into BBDB file. So you can auto-complete email address in Emacs.
 
 Please note the BBDB file *only contains name and email address*. I remove useless BBDB features to minimize the maintaining cost.
