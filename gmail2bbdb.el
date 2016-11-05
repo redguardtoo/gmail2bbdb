@@ -4,7 +4,7 @@
 ;; Author: Chen Bin <chenbin.sh@gmail.com>
 ;; URL: http://github.com/redguardtoo/gmail2bbdb
 ;; Keywords: vcard bbdb email contact gmail
-;; Version: 0.0.5
+;; Version: 0.0.6
 
 ;; This file is not part of GNU Emacs.
 
@@ -65,7 +65,7 @@
 ;; ["Spolsky" "Joel" nil ("Spolsky Joel") nil nil nil ("spolsky@fogcreek.com") nil nil]
 (defun gmail2bbdb--extract-item (str)
   (let* ((lines (split-string str "[\r\n]+"))
-         fullname firstname lastname emails rlt eml)
+         fullname family-name given-name emails rlt eml)
 
     (dolist (l lines)
       (cond
@@ -73,18 +73,19 @@
         (setq fullname (match-string 1 l)))
 
        ((string-match "^N:\\([^;]*\\);\\([^;]*\\);.*" l)
-        (setq firstname (match-string 1 l))
-        (setq lastname (match-string 2 l)))
+        (setq family-name (match-string 1 l))
+        (setq given-name (match-string 2 l)))
 
        ((string-match "TYPE=[A-Z]+:\\([^ @]+@[^ @]+\\)" l)
         (setq eml (match-string 1 l))
-        (if (and (or (not gmail2bbdb-exclude-people-without-name)
-                     (not (string= "" firstname))
-                     (not (string= "" lastname)))
+        (when (and (or (not gmail2bbdb-exclude-people-without-name)
+                     (not (string= "" family-name))
+                     (not (string= "" given-name)))
                  (gmail2bbdb--is-valid-email eml))
+            (message "family-name=%s given-name=%s " family-name given-name)
             (add-to-list 'emails eml)))))
     (when emails
-      (setq rlt (vector firstname lastname nil (list fullname) nil nil nil emails nil nil))
+      (setq rlt (vector given-name family-name nil (list fullname) nil nil nil emails nil nil))
       (format "%S" rlt))))
 
 ;;;###autoload
