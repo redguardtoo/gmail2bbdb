@@ -1,4 +1,4 @@
-* gmail2bbdb (v0.0.4)
+* gmail2bbdb (v0.0.5)
 
 [[http://melpa.org/#/gmail2bbdb][file:http://melpa.org/packages/gmail2bbdb-badge.svg]] [[http://stable.melpa.org/#/gmail2bbdb][file:http://stable.melpa.org/packages/gmail2bbdb-badge.svg]]
 
