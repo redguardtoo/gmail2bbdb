@@ -118,7 +118,7 @@ Existing BBDB records will be *overrided*."
           (insert ";; -*- mode: Emacs-Lisp; coding: utf-8; -*-\n")
           (insert ";;; file-format: 7\n")
           (insert (mapconcat 'identity rlt "\n"))
-          (write-file (file-truename gmail2bbdb-bbdb-file)))
+          (write-file dst-file))
       (message "No email found"))))
 
 (provide 'gmail2bbdb)
